@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+            <head>
+                        <link rel= "stylesheet" type="text/css" href="style.css">
+                        <title>PENGINAPAN DE LUNA</title>
+                        <script src= "jquery-3.6.0.js"></script>
+            </head>
+            <body>
+                        <div class="container">
+                                    <div class="navigasi">
+                                                <nav>
+                                                            <ul> 
+                                                                        <li><a href="">HOME</a></li>
+                                                                        <li><a href="#CekHarga">CEK HARGA</a></li>
+                                                                        <li><a href="#logout">LOG OUT</a></li>
+                                                            </ul>
+                                                </nav>
+                                    
+                                    <!--Login-->
+                                    <div class="loginbtn">
+                                                <a href="#logout">LOG OUT</a>
+
+                                    </div>
+                                    <div id="login-box">
+                                                <h1>LOG-IN</h1>
+                                                            <form>
+                                                                        <p>Username</p>
+                                                                        <input type="text" name="Username" placeholder="Enter Username">
+                                                                        <p>Password</p>
+                                                                        <input type="password" name="password" placeholder="Enter Password">
+                                                                        <input type="submit" name="submit" value="Login"><br>
+                                                                        <a href="#">Lupa Password</a>
+                                                            </form>
+                                                
+                                    </div>
+                                    <script> 
+                                                            function validateForm() {
+                                                                let x = document.forms["Username"]["password"].value;
+                                                                if (x == "") {
+                                                                        alert("Harus diisi");
+                                                                        return false;
+                                                                        }
+                                                            }
+                                                            $(".loginbtn").click(function(){
+						$(this).next().showToggle(400);
+						},
+						function(){
+							$(this).next().slideToggle(400);
+						});
+                                                </script>
+                                    </div>
+
+                                    <div class="row">
+                                                <div class="col">
+                                                            <h1>DE LUNA HOTEL'S</h1>
+                                                            <p>Selamat Datang di De Luna Hotel's<br>
+                                                            Hotel's ini telah berdiri sejak 2015 dengan hunian yang nyaman untuk healing.
+                                                     Selamat menginap di hunian kami! 
+                                                            </p>
+                                                             <div id="button">
+                                                            <a href="#CekHarga">Cek Harga</a>
+                                                            </div>
+                                                </div>
+                                                <div class="col">
+                                                            <div class="card c1">
+                                                                        <h5>view yang menarik</h5>       
+                                                            </div>
+                                                            <div class="card c2">
+                                                                        <h5>Hunian yang nyaman</h5> 
+                                                            </div>
+                                                            <div class="card c3">
+                                                                        <h5>aesthetic</h5> 
+                                                            </div>
+                                                            <div class="card c4">
+                                                                        <h5>aman tenang</h5> 
+                                                            </div>
+                                                </div>
+                                    </div>
+                                    <!--CEK HARGA-->
+                                    <section id="CekHarga">
+                                                <div class="title-text"><br><br><br><br>
+                                                            <p>HARGA PENGINAPAN</p>
+                                                            <div>
+                                                                        <div class="form-group">
+                                                                                    <label><b>Lantai : </b></label>
+                                                                                    <input type="text" name="lantai" id="lantai" placeholder="Lantai ke- " class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                                    <label><b>Type : </b></label>
+                                                                                    <select name="Type" id="tipe" class="form-control">
+                                                                                    <option value="300000">Standard</option>
+                                                                                    <option value="400000">Superior</option>
+                                                                                    <option value="500000">Deluxe</option>
+                                                                                    </select>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                                    <label><b>Jumlah Hari : </b></label>
+                                                                                    <input type="text" name="Jumlah Hari" id="jml" placeholder="Jumlah Hari" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                                    <label><b>Diskon : </b></label>
+                                                                                    <select name="Diskon" id="dis" class="form-control">
+                                                                                    <option value="0">Tidak ada</option>
+                                                                                    <option value="1000000">Member</option>
+                                                                                    <option value="150000">Promo HUT</option>
+                                                                                    </select>
+                                                                        </div>
+                                                                        <button type="submit" id="check" onclick="getHitung()">CEK</button>
+                                                            </div>
+                                                            <h2 id="total"></h2>
+                                                            <h2 id="diskon"></h2>
+                                                            <h2 id="bayar"></h2>
+                                                </div>
+                                                <script>
+                                                            function getHitung(){
+                                                                        var lantai = document.getElementById("lantai").value;
+                                                                        var tipe = document.getElementById("tipe").value;
+                                                                        var jml = document.getElementById("jml").value;
+                                                                        var dis = document.getElementById("dis").value;
+                                                                        var total = 0;
+                                                                        var x = 0;
+                                                                        if(lantai > 6){
+                                                                        x = 50000;
+                                                                        // keluarkan gunakan DOM ada di pertemuan 4 innerHTML
+                                                                        }else{
+                                                                        x = 0;
+                                                                        // keluarkan gunakan DOM ada di pertemuan 4 innerHTML
+                                                                        }
+                                                                        total = tipe * jml + x;
+                                                                        document.getElementById('total').innerHTML = "Total Transaksi " + total;
+                                                                        total = total - dis;
+                                                                        document.getElementById('diskon').innerHTML = "Total Diskon " + dis;
+                                                                        document.getElementById('bayar').innerHTML = "Total  " + total;
+                                                                        console.log(total);
+                                                }
+                                                </script>
+
+                                    </section>
+
+                                    <div class="footer">
+                                                <div class="footer2">
+                                                            <h3>DE LUNA HOTEL'S</h3>
+                                                            <p>Copyright 2021 | Cintya Aprila Fandini |</p>
+                                                </div>
+                                    </div>
+                        </div>
+            </body>
+</html>
